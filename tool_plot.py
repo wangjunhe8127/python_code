@@ -43,13 +43,25 @@ def plot_subplots(points, xb, yb, fx,fy):
     plt.show()
 
 
-def plot_common(points):
-    num_subplots = len(points)
-    fig, ax = plt.subplots()
-    for i in range(num_subplots):
-        point = np.array(points[i])
-        ax.plot(point[:,0],point[:,1])
-    ax.axis('equal')
-    plt.show()
+def plot_common(idx = 0,mode = "show"):
+    inter_idx = idx
+    def step(points,one_point=[]):
+        nonlocal inter_idx
+        num_subplots = len(points)
+        fig, ax = plt.subplots()
+        for i in range(num_subplots):
+            point = np.array(points[i])
+            ax.plot(point[:,0],point[:,1])
+        if len(one_point) != 0:
+            for i in one_point:
+                ax.scatter(i[0],i[1])
+        ax.axis('equal')
+        if mode == "show":
+            plt.show()
+        else:
+            plt.savefig(f'/data/megvii/pilot/picture/{inter_idx}.jpg')
+            inter_idx +=1
+        return 
+    return step
     # xticklocs = np.linspace(-xb, xb, 10)
     # yticklocs = np.linspace(-yb, yb, 10)

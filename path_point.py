@@ -50,5 +50,5 @@ def concatenate_lists(*lists):
 
 points_s = draw_arc((0, 0), 4, 0, 90, 0.15)
 points_lp = draw_line((4, -4), (4, 0), 0.15)
-points_lb = draw_line((0, 4), (-4, 4), 0.15)
+points_lb = draw_line((0, 4), (-12, 4), 0.15)
 points = concatenate_lists(points_lp,points_s,points_lb)
